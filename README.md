@@ -3,8 +3,10 @@ This repository is designed to handle real-time hospital data service.
 It includes a database management system and a set of API to handle it.
 
 ## Content
-- [User Stories](#user-stories)
-
+- [Hospital-Management](#hospital-management)
+  - [Content](#content)
+  - [User Stories](#user-stories)
+  - [Branching Strategy](#branching-strategy)
 ## User Stories
 - Patient:
 
