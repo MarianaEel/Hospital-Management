@@ -49,16 +49,17 @@ It includes a database management system and a set of API to handle it.
 Check the ERD:  Hospital DB - ERD with colored entities (UML notation)
 
 ## File Structure
-|   Hospital DB - ERD with colored entities (UML notation).pdf
-|   Hospital DB - ERD with colored entities (UML notation).png
-|   hospital_db.py
-|   README.md
-|   requirements.txt
-|
-+---module
-|   \---user_management
-|   |       add_user.py
-|
-+---test
-|       testfile.txt
-\       test_user.py
+|   Hospital DB - ERD with colored entities (UML notation).pdf  
+|   Hospital DB - ERD with colored entities (UML notation).png  
+|   hospital_db.py  
+|   README.md  
+|   requirements.txt  
+|  
++---module  
+|   \---user_management  
+|   |       add_user.py  
+|  
++---test  
+|       testfile.txt  
+\       test_user.py 
+ 
