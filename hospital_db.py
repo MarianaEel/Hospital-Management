@@ -2,7 +2,6 @@ from flask import Flask
 from flask_restful import Resource, Api, reqparse
 import pandas as pd
 import ast
-import requests
 
 import module.user_management.patient as patient
 import module.user_management.staff as staff
