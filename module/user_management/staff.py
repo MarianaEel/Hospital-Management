@@ -8,5 +8,7 @@ class staffs(Resource):
         data = data.to_dict()  # convert dataframe to dictionary
         return {'data': data}, 200  # return data and 200 OK code
 
+    
+
     def add_staff(name: str, gender: str, role: str, title: str, department_id: int, department_name: str):
         pass
