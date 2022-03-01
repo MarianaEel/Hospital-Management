@@ -21,4 +21,4 @@ if __name__ == '__main__':
     # def hello():
     #     return 'Hello, World'
 
-    app.run(debug=False)  # run Flask app
+    app.run(debug=True)  # run Flask app

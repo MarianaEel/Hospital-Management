@@ -5,16 +5,29 @@ import requests
 def test_user_management():
     purl = ('http://127.0.0.1:5000/patients')
     response = requests.get(purl)
+    print('get ')
     print (response.json())
     print (response)
     # assert(response == 0)
     adata = {
-        "id" : 1,
+        "id" : "1",
         "name" : "Jason",
         "gender" : "male",
-        "age" : 19,
+        "age" : "19",
     }
+    print("post ")
     response = requests.post(purl,adata)
+    print (response)
+    response = requests.get(purl)
+    print (response.json())
+    bdata = {
+        "id" : "1",
+        "name" : "Bason",
+        "gender" : "male",
+        "age" : "29",
+    }
+    print ("put: ")
+    response = requests.put(purl,bdata)
     print (response)
     response = requests.get(purl)
     print (response.json())
