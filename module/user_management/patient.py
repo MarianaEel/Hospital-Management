@@ -1,7 +1,5 @@
-import imp
 from flask_restful import Resource, reqparse
 import pandas as pd
-import ast
 
 
 class patients(Resource):
@@ -59,18 +57,8 @@ class patients(Resource):
             # select our user
             user_data = data[data['id'] == int(args['id'])]
 
-            # update user's name if need to
-            if('name' in args):
-                print("name in args")
-                user_data.loc[int(args['id']), 'name'] = args['name']
-
-            # update user's gender if need to
-            if('gender' in args):
-                user_data.loc[int(args['id']), 'gender'] = args['gender']
-
-            # update user's age if need to
-            if('age' in args):
-                user_data.loc[int(args['id']), 'age'] = args['age']
+            for arg in args:
+                user_data.loc[int(args['id']), arg] = args[arg]
 
             # save back to CSV
             data[data['id'] == int(args['id'])] = user_data
@@ -105,7 +93,6 @@ class patients(Resource):
             return {
                 'message': f"'{args['id']}' user not found."
             }, 404
-
 
 
 if __name__ == '__main__':
