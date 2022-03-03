@@ -20,7 +20,6 @@ class patients(Resource):
 
         # read our CSV
         data = pd.read_csv('./data/patients.csv')
-        
 
         if int(args['id']) in list(data['id']):
             return {
@@ -39,7 +38,7 @@ class patients(Resource):
             # save back to CSV
             data.to_csv('./data/patients.csv', index=False)
             return {'data': data.to_dict()}, 200  # return data with 200 OK
-            
+
     def put(self):
         parser = reqparse.RequestParser()  # initialize
         parser.add_argument('id', required=True)  # add args
@@ -50,8 +49,6 @@ class patients(Resource):
 
         # read our CSV
         data = pd.read_csv('./data/patients.csv')
-        
-        print(data)
 
         if int(args['id']) in list(data['id']):
             # # evaluate strings of lists to lists
@@ -59,36 +56,57 @@ class patients(Resource):
             #     lambda x: ast.literal_eval(x)
             # )
 
-            print("in id")
-
             # select our user
             user_data = data[data['id'] == int(args['id'])]
 
-            print(user_data)
-
             # update user's name if need to
-            if('name'in args):
+            if('name' in args):
                 print("name in args")
-                user_data.loc[int(args['id']),'name'] = [args['name']]
+                user_data.loc[int(args['id']), 'name'] = args['name']
 
             # update user's gender if need to
-            if('gender'in args):
-                user_data.loc[int(args['id']),'gender'] = [args['gender']]
-            
+            if('gender' in args):
+                user_data.loc[int(args['id']), 'gender'] = args['gender']
+
             # update user's age if need to
-            if('age'in args):
-                user_data.loc[int(args['id']),'age'] = [args['age']]
+            if('age' in args):
+                user_data.loc[int(args['id']), 'age'] = args['age']
 
             # save back to CSV
+            data[data['id'] == int(args['id'])] = user_data
             data.to_csv('./data/patients.csv', index=False)
             # return data and 200 OK
             return {'data': data.to_dict()}, 200
 
         else:
-            # otherwise the userId does not exist
+            # otherwise the id does not exist
             return {
                 'message': f"'{args['id']}' user not found."
             }, 404
+
+    def delete(self):
+        parser = reqparse.RequestParser()  # initialize
+        parser.add_argument('id', required=True)  # add id arg
+        args = parser.parse_args()  # parse arguments to dictionary
+        
+        # read our CSV
+        data = pd.read_csv('./data/patients.csv')
+        
+        if int(args['id']) in list(data['id']):
+            # remove data entry matching given id
+            data = data[data['id'] != int(args['id'])]
+            
+            # save back to CSV
+            data.to_csv('./data/patients.csv', index=False)
+            # return data and 200 OK
+            return {'data': data.to_dict()}, 200
+        else:
+            # otherwise we return 404 because id does not exist
+            return {
+                'message': f"'{args['id']}' user not found."
+            }, 404
+
+
 
 if __name__ == '__main__':
     pass
