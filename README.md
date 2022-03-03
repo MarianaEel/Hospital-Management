@@ -8,6 +8,7 @@ It includes a database management system and a set of API to handle it.
   - [User Stories](#user-stories)
   - [Branching Strategy](#branching-strategy)
   - [Data Fields](#data-fields)
+  - [How to use](#how-to-use)
   - [File Structure](#file-structure)
 ## User Stories
 - Patient:
@@ -47,6 +48,10 @@ It includes a database management system and a set of API to handle it.
 
 ## Data Fields
 Check the ERD:  Hospital DB - ERD with colored entities (UML notation)
+
+## How to use
+- Local
+  - Run hospital.db first, then post request to http://127.0.0.1:5000/staffs, or use test_api to check if the local server is running correctly.
 
 ## File Structure
 |   Hospital DB - ERD with colored entities (UML notation).pdf  
