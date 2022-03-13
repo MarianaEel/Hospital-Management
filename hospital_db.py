@@ -1,17 +1,19 @@
+import json
 from flask import Flask
 from flask_restful import Resource, Api, reqparse
-from multiprocessing import Process
-import os
 
-import module.user_management.patient as patient
-import module.user_management.staff as staff
+import module.user_management.management_factory as factory
+
 
 class hospital_db():
     def __init__(self) -> None:
         self.app = Flask(__name__)
         self.api = Api(self.app)
-        self.api.add_resource(patient.patients, '/patients')
-        self.api.add_resource(staff.staffs, '/staffs')
+
+        self.api.add_resource(factory.patients, "/patients")
+        self.api.add_resource(factory.staffs, "/staffs")
+        self.api.add_resource(factory.datas, "/datas")
+
     # def dbprocess(self):
     #     self.childpr = Process(target=self.dbrun, args=('testdb',))
     #     print('Child process will start.')

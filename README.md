@@ -5,11 +5,22 @@ It includes a database management system and a set of API to handle it.
 ## Content
 - [Hospital-Management](#hospital-management)
   - [Content](#content)
+  - [Setup](#setup)
+    - [Requirement](#requirement)
+    - [How to use](#how-to-use)
   - [User Stories](#user-stories)
   - [Branching Strategy](#branching-strategy)
   - [Data Fields](#data-fields)
-  - [How to use](#how-to-use)
+  - [Unit Test](#unit-test)
   - [File Structure](#file-structure)
+
+## Setup
+### Requirement
+
+### How to use
+- Local
+  - Run hospital.db first, then post request to http://127.0.0.1:5000/staffs, or use test_api to check if the local server is running correctly.
+
 ## User Stories
 - Patient:
   - upload basic info
@@ -49,9 +60,8 @@ It includes a database management system and a set of API to handle it.
 ## Data Fields
 Check the ERD:  Hospital DB - ERD with colored entities (UML notation)
 
-## How to use
-- Local
-  - Run hospital.db first, then post request to http://127.0.0.1:5000/staffs, or use test_api to check if the local server is running correctly.
+## Unit Test
+This project use bottom-up unit test method.
 
 ## File Structure
 |   Hospital DB - ERD with colored entities (UML notation).pdf  

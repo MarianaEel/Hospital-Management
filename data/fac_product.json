@@ -1,0 +1,45 @@
+{
+    "patients": [
+        {
+            "csv": "./data/patients.csv",
+            "argument": [
+                "id",
+                "name",
+                "gender",
+                "age"
+            ]
+        }
+    ],
+    "staffs": [
+        {
+            "csv": "./data/staffs.csv",
+            "argument": [
+                "id",
+                "name",
+                "gender",
+                "role",
+                "title",
+                "departmentname"
+            ]
+        }
+    ],
+    "datas": [
+        {
+            "csv": "./data/datas.csv",
+            "argument": [
+                "id",
+                "deviceid",
+                "devicename",
+                "patientid",
+                "patientname",
+                "time",
+                "date",
+                "staffid",
+                "staffname",
+                "intdata",
+                "graphdata",
+                "imagedata"
+            ]
+        }
+    ]
+}

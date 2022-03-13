@@ -1,23 +1,39 @@
+from abc import ABCMeta, abstractstaticmethod
 from flask_restful import Resource, reqparse
 import pandas as pd
+import json
 
-
-class patients(Resource):
+class management_api_interface(Resource):
+    @abstractstaticmethod
     def get(self):
-        data = pd.read_csv('./data/patients.csv')  # read CSV
+        pass
+    def post(self):
+        pass
+    def put(self):
+        pass
+    def delete(self):
+        pass
+
+class management_api(management_api_interface):
+    def __init__(self,dir=None) -> None:
+        self.name = "name"
+        self.productdir=dir if dir is not None else "./data/fac_product.json"
+        with open(self.productdir) as json_file:
+            self.product = json.load(json_file)
+
+    def get(self):
+        data = pd.read_csv(self.product[self.name][0]["csv"])  # read CSV
         data = data.to_dict()  # convert dataframe to dictionary
         return {'data': data}, 200  # return data and 200 OK code
 
     def post(self):
         parser = reqparse.RequestParser()  # initialize
-        parser.add_argument('id', required=True)  # add args
-        parser.add_argument('name', required=True)
-        parser.add_argument('gender', required=True)
-        parser.add_argument('age', required=True)
+        for column in self.product[self.name][0]["argument"]:
+            parser.add_argument(column, required=True)  # add args
         args = parser.parse_args()  # parse arguments to dictionary
 
         # read our CSV
-        data = pd.read_csv('./data/patients.csv')
+        data = pd.read_csv(self.product[self.name][0]["csv"])
 
         if int(args['id']) in list(data['id']):
             return {
@@ -25,28 +41,26 @@ class patients(Resource):
             }, 401
         else:
             # create new dataframe containing new values
-            new_data = pd.DataFrame({
-                'id': [args['id']],
-                'name': [args['name']],
-                'gender': [args['gender']],
-                'age': [args['age']]
-            })
+            new_data = pd.DataFrame()
+            for column in self.product[self.name][0]["argument"]:
+                new_data[column]=[args[column]]
             # add the newly provided values
             data = data.append(new_data, ignore_index=True)
             # save back to CSV
-            data.to_csv('./data/patients.csv', index=False)
+            data.to_csv(self.product[self.name][0]["csv"], index=False)
             return {'data': data.to_dict()}, 200  # return data with 200 OK
 
     def put(self):
         parser = reqparse.RequestParser()  # initialize
-        parser.add_argument('id', required=True)  # add args
-        parser.add_argument('name', required=False)
-        parser.add_argument('gender', required=False)
-        parser.add_argument('age', required=False)
+        for column in self.product[self.name][0]["argument"]:
+            if column =="id":
+                parser.add_argument(column, required=True)  # add args
+            else:
+                parser.add_argument(column, required=False)  # add args
         args = parser.parse_args()  # parse arguments to dictionary
 
         # read our CSV
-        data = pd.read_csv('./data/patients.csv')
+        data = pd.read_csv(self.product[self.name][0]["csv"])
 
         if int(args['id']) in list(data['id']):
             # # evaluate strings of lists to lists
@@ -62,7 +76,7 @@ class patients(Resource):
 
             # save back to CSV
             data[data['id'] == int(args['id'])] = user_data
-            data.to_csv('./data/patients.csv', index=False)
+            data.to_csv(self.product[self.name][0]["csv"], index=False)
             # return data and 200 OK
             return {'data': data.to_dict()}, 200
 
@@ -72,20 +86,21 @@ class patients(Resource):
                 'message': f"'{args['id']}' user not found."
             }, 404
 
+
     def delete(self):
         parser = reqparse.RequestParser()  # initialize
         parser.add_argument('id', required=True)  # add id arg
         args = parser.parse_args()  # parse arguments to dictionary
         
         # read our CSV
-        data = pd.read_csv('./data/patients.csv')
+        data = pd.read_csv(self.product[self.name][0]["csv"])
         
         if int(args['id']) in list(data['id']):
             # remove data entry matching given id
             data = data[data['id'] != int(args['id'])]
             
             # save back to CSV
-            data.to_csv('./data/patients.csv', index=False)
+            data.to_csv(self.product[self.name][0]["csv"], index=False)
             # return data and 200 OK
             return {'data': data.to_dict()}, 200
         else:
@@ -93,7 +108,3 @@ class patients(Resource):
             return {
                 'message': f"'{args['id']}' user not found."
             }, 404
-
-
-if __name__ == '__main__':
-    pass
