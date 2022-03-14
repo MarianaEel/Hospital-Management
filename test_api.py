@@ -1,168 +1,110 @@
+from xml.etree.ElementTree import tostring
 import requests
 import os
+import json
 
-class test_api():        
+
+class test_api():
     def __init__(self) -> None:
         self.term_size = os.get_terminal_size()
-    def test_patient(self):
-        print('=' * self.term_size.columns)
-        print("Here goes patient test")
-        purl = ('http://127.0.0.1:5000/patients')
+        self.name = "name"
+        self.infodir = "./test/testfile.json"
+        with open(self.infodir) as json_file:
+            self.info = json.load(json_file)
         
+
+    def test(self):
+        self.f = open("./test/testoutcome.txt", "a")
+        purl = ('http://127.0.0.1:5000/'+self.name)
+
+        print('=' * self.term_size.columns)
+        print("Here goes "+self.name+" test")
+        self.f.write('=' * self.term_size.columns+'\n')
+        self.f.write("Here goes "+self.name+" test"+'\n')
+
         print('test get ')
+        self.f.write('test get '+'\n')
+
         response = requests.get(purl)
-        print (response.json())
-        print (response.status_code)
+        print(response.json())
+        print(response)
+        self.f.write(json.dumps(response.json(), indent=4)+'\n')
+        self.f.write("<Response ["+str(response.status_code)+"]>"+'\n')
+
         assert(response.status_code == 200)
 
         print("test post ")
-        adata = {
-            "id" : "1",
-            "name" : "Jason",
-            "gender" : "male",
-            "age" : "19",
-        }
-        response = requests.post(purl,adata)
-        print (response)
-        assert(response.status_code == 200)
-        response = requests.get(purl)
-        print (response.json())
+        self.f.write("test post "+'\n')
+        postdata = self.info[self.name][0]["postdata"][0]
 
-        print ("test put: ")
-        bdata = {
-            "id" : "1",
-            "name" : "Bason",
-            "gender" : "male",
-            "age" : "29",
-        }
-        response = requests.put(purl,bdata)
-        print (response)
-        assert(response.status_code == 200)
-        response = requests.get(purl)
-        print (response.json())
+        response = requests.post(purl, postdata)
+        print(response)
+        self.f.write("<Response ["+str(response.status_code)+"]>"+'\n')
 
-        print ("test delete: ")
-        delurl = purl + "?id=1"
-        response = requests.request('DELETE',delurl)
-        print (response)
-        assert(response.status_code == 200)
-        response = requests.get(purl)
-        print (response.json())
-
-    def test_staff(self):
-        print('=' * self.term_size.columns)
-        print("Here goes staff test")
-        purl = ('http://127.0.0.1:5000/staffs')
-        
-        print('test get ')
-        response = requests.get(purl)
-        print (response.json())
-        print (response)
         assert(response.status_code == 200)
 
-        print("test post ")
-        adata = {
-            "id" : "1",
-            "name" : "Steven",
-            "gender" : "male",
-            "role" : "nurse",
-            "title": "chief phisician",
-            "departmentid":"1301",
-            "departmentname":"Proctology"
-        }
-        response = requests.post(purl,adata)
-        print (response)
-        assert(response.status_code == 200)
         response = requests.get(purl)
-        print (response.json())
+        print(response.json())
+        self.f.write(json.dumps(response.json(), indent=4)+'\n')
 
-        print ("test put: ")
-        bdata = {
-            "id" : "1",
-            "name" : "Steve",
-            "gender" : "male",
-            "role" : "doctor",
-            "title": "chief phisician",
-            "departmentid":"1302",
-            "departmentname":"Proctology"
-        }
-        response = requests.put(purl,bdata)
-        print (response)
+        print("test put: ")
+        self.f.write("test put: "+'\n')
+        putdata = self.info[self.name][0]["putdata"][0]
+
+        response = requests.put(purl, putdata)
+        print(response)
+        self.f.write("<Response ["+str(response.status_code)+"]>"+'\n')
         assert(response.status_code == 200)
-        response = requests.get(purl)
-        print (response.json())
 
-        print ("test delete: ")
-        delurl = purl + "?id=1"
-        response = requests.request('DELETE',delurl)
-        print (response)
+        response = requests.get(purl)
+        print(response.json())
+        self.f.write(json.dumps(response.json(), indent=4)+'\n')
+
+        print("test delete: ")
+        self.f.write("test delete: "+'\n')
+        delurl = purl + "?id="+self.info[self.name][0]["deletedata"][0]["id"]
+
+        response = requests.request('DELETE', delurl)
+        print(response)
+        self.f.write("<Response ["+str(response.status_code)+"]>"+'\n')
         assert(response.status_code == 200)
-        response = requests.get(purl)
-        print (response.json())
 
-    def test_data(self):
-        print('=' * self.term_size.columns)
-        print("Here goes data test")
-        purl = ('http://127.0.0.1:5000/datas')
-        
-        # print('test get ')
-        # response = requests.get(purl)
-        # print (response.json())
-        # print (response)
-        # assert(response.status_code == 200)
-
-        print("test post ")
-        adata = {
-            "id":"1",
-            "deviceid":"1001",
-            "devicename":"blood_pressure_machine",
-            "patientid":"2",
-            "patientname":"Max",
-            "time":"1868",
-            "date":"20220125",
-            "staffid":"2",
-            "staffname":"Marry",
-            "intdata":"120",
-            "graphdata":"",
-            "imagedata":""
-        }
-        response = requests.post(purl,adata)
-        print (response)
-        assert(response.status_code == 200)
         response = requests.get(purl)
-        print (response.json())
+        print(response.json())
+        self.f.write(json.dumps(response.json(), indent=4)+'\n')
 
-        print ("test put: ")
-        bdata = {
-            "id":"1",
-            "deviceid":"1005",
-            "devicename":"blood_pressure_machine",
-            "patientid":"2",
-            "patientname":"Max",
-            "time":"20220125",
-            "date":"1868",
-            "staffid":"2",
-            "staffname":"Marry",
-            "intdata":"120",
-            "graphdata":"",
-            "imagedata":""
-        }
-        response = requests.put(purl,bdata)
-        print (response)
-        assert(response.status_code == 200)
-        response = requests.get(purl)
-        print (response.json())
+        self.f.close()
 
-        print ("test delete: ")
-        delurl = purl + "?id=1"
-        response = requests.request('DELETE',delurl)
-        print (response)
-        assert(response.status_code == 200)
-        response = requests.get(purl)
-        print (response.json())
+class test_patients(test_api):
+    def __init__(self) -> None:
+        super().__init__()
+        self.name = "patients"
+
+class test_staffs(test_api):
+    def __init__(self) -> None:
+        super().__init__()
+        self.name = "staffs"
+
+class test_datas(test_api):
+    def __init__(self) -> None:
+        super().__init__()
+        self.name = "datas"
+
+class test_chats(test_api):
+    def __init__(self) -> None:
+        super().__init__()
+        self.name = "chats"
+
 
 if __name__ == '__main__':
-    testapi=test_api()
-    testapi.test_patient()
-    testapi.test_staff()
-    testapi.test_data()
+    f = open("./test/testoutcome.txt", "w")
+    f.write("")
+    f.close()
+    test_p=test_patients()
+    test_p.test()
+    test_s=test_staffs()
+    test_s.test()
+    test_d=test_datas()
+    test_d.test()
+    test_c=test_chats()
+    test_c.test()

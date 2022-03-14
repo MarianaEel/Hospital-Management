@@ -23,6 +23,13 @@ class datas(management_api):
         with open(self.productdir) as json_file:
             self.product = json.load(json_file)
 
+class chats(management_api):
+    def __init__(self,dir=None) -> None:
+        self.name = "chats"
+        self.productdir=dir if dir is not None else "./data/fac_product.json"
+        with open(self.productdir) as json_file:
+            self.product = json.load(json_file)
+
 # class management_factory():
 #     @staticmethod
 #     def generate_method(apitype):

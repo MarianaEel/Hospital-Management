@@ -13,6 +13,7 @@ class hospital_db():
         self.api.add_resource(factory.patients, "/patients")
         self.api.add_resource(factory.staffs, "/staffs")
         self.api.add_resource(factory.datas, "/datas")
+        self.api.add_resource(factory.chats, "/chats")
 
     # def dbprocess(self):
     #     self.childpr = Process(target=self.dbrun, args=('testdb',))

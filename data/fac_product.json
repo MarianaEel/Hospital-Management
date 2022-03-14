@@ -41,5 +41,22 @@
                 "imagedata"
             ]
         }
+    ],
+    "chats": [
+        {
+            "csv": "./data/chats.csv",
+            "argument": [
+                "id",
+                "senderid",
+                "recieverid",
+                "time",
+                "questiontype",
+                "textdata",
+                "intdata",
+                "graphdata",
+                "image",
+                "voice"
+            ]
+        }
     ]
 }

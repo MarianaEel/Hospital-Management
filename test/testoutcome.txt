@@ -1,0 +1,594 @@
+==========================================================================================================================================================================================
+Here goes patients test
+test get 
+{
+    "data": {
+        "id": {
+            "0": 2
+        },
+        "name": {
+            "0": "Max"
+        },
+        "gender": {
+            "0": "male"
+        },
+        "age": {
+            "0": 18
+        }
+    }
+}
+<Response [200]>
+test post 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2,
+            "1": 1
+        },
+        "name": {
+            "0": "Max",
+            "1": "Jason"
+        },
+        "gender": {
+            "0": "male",
+            "1": "male"
+        },
+        "age": {
+            "0": 18,
+            "1": 19
+        }
+    }
+}
+test put: 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2,
+            "1": 1
+        },
+        "name": {
+            "0": "Max",
+            "1": "Bason"
+        },
+        "gender": {
+            "0": "male",
+            "1": "male"
+        },
+        "age": {
+            "0": 18,
+            "1": 29
+        }
+    }
+}
+test delete: 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2
+        },
+        "name": {
+            "0": "Max"
+        },
+        "gender": {
+            "0": "male"
+        },
+        "age": {
+            "0": 18
+        }
+    }
+}
+==========================================================================================================================================================================================
+Here goes staffs test
+test get 
+{
+    "data": {
+        "id": {
+            "0": 2
+        },
+        "name": {
+            "0": " Marry"
+        },
+        "gender": {
+            "0": "female"
+        },
+        "role": {
+            "0": "doctor"
+        },
+        "title": {
+            "0": "Pysician"
+        },
+        "departmentid": {
+            "0": 1028.0
+        },
+        "departmentname": {
+            "0": "gynecology"
+        }
+    }
+}
+<Response [200]>
+test post 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2,
+            "1": 1
+        },
+        "name": {
+            "0": " Marry",
+            "1": "Steven"
+        },
+        "gender": {
+            "0": "female",
+            "1": "male"
+        },
+        "role": {
+            "0": "doctor",
+            "1": "nurse"
+        },
+        "title": {
+            "0": "Pysician",
+            "1": "chief phisician"
+        },
+        "departmentid": {
+            "0": 1028.0,
+            "1": NaN
+        },
+        "departmentname": {
+            "0": "gynecology",
+            "1": "Proctology"
+        }
+    }
+}
+test put: 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2,
+            "1": 1
+        },
+        "name": {
+            "0": " Marry",
+            "1": "Steve"
+        },
+        "gender": {
+            "0": "female",
+            "1": "male"
+        },
+        "role": {
+            "0": "doctor",
+            "1": "doctor"
+        },
+        "title": {
+            "0": "Pysician",
+            "1": "chief phisician"
+        },
+        "departmentid": {
+            "0": 1028.0,
+            "1": NaN
+        },
+        "departmentname": {
+            "0": "gynecology",
+            "1": "Proctology"
+        }
+    }
+}
+test delete: 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2
+        },
+        "name": {
+            "0": " Marry"
+        },
+        "gender": {
+            "0": "female"
+        },
+        "role": {
+            "0": "doctor"
+        },
+        "title": {
+            "0": "Pysician"
+        },
+        "departmentid": {
+            "0": 1028.0
+        },
+        "departmentname": {
+            "0": "gynecology"
+        }
+    }
+}
+==========================================================================================================================================================================================
+Here goes datas test
+test get 
+{
+    "data": {
+        "id": {
+            "0": 2
+        },
+        " deviceid": {
+            "0": 1021.0
+        },
+        "devicename": {
+            "0": "amachine"
+        },
+        "patientid": {
+            "0": 2
+        },
+        "patientname": {
+            "0": "Max"
+        },
+        "time": {
+            "0": 829
+        },
+        "date": {
+            "0": 20201220
+        },
+        "staffid": {
+            "0": 2
+        },
+        "staffname": {
+            "0": "Marry"
+        },
+        "intdata": {
+            "0": 120
+        },
+        "graphdata": {
+            "0": NaN
+        },
+        "imagedata": {
+            "0": NaN
+        },
+        "deviceid": {
+            "0": NaN
+        }
+    }
+}
+<Response [200]>
+test post 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2,
+            "1": 1
+        },
+        " deviceid": {
+            "0": 1021.0,
+            "1": NaN
+        },
+        "devicename": {
+            "0": "amachine",
+            "1": "blood_pressure_machine"
+        },
+        "patientid": {
+            "0": 2,
+            "1": 2
+        },
+        "patientname": {
+            "0": "Max",
+            "1": "Max"
+        },
+        "time": {
+            "0": 829,
+            "1": 1868
+        },
+        "date": {
+            "0": 20201220,
+            "1": 20220125
+        },
+        "staffid": {
+            "0": 2,
+            "1": 2
+        },
+        "staffname": {
+            "0": "Marry",
+            "1": "Marry"
+        },
+        "intdata": {
+            "0": 120,
+            "1": 120
+        },
+        "graphdata": {
+            "0": NaN,
+            "1": NaN
+        },
+        "imagedata": {
+            "0": NaN,
+            "1": NaN
+        },
+        "deviceid": {
+            "0": NaN,
+            "1": 1001.0
+        }
+    }
+}
+test put: 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2,
+            "1": 1
+        },
+        " deviceid": {
+            "0": 1021.0,
+            "1": NaN
+        },
+        "devicename": {
+            "0": "amachine",
+            "1": "blood_pressure_machine"
+        },
+        "patientid": {
+            "0": 2,
+            "1": 2
+        },
+        "patientname": {
+            "0": "Max",
+            "1": "Max"
+        },
+        "time": {
+            "0": 829,
+            "1": 20220125
+        },
+        "date": {
+            "0": 20201220,
+            "1": 1868
+        },
+        "staffid": {
+            "0": 2,
+            "1": 2
+        },
+        "staffname": {
+            "0": "Marry",
+            "1": "Marry"
+        },
+        "intdata": {
+            "0": 120,
+            "1": 120
+        },
+        "graphdata": {
+            "0": NaN,
+            "1": NaN
+        },
+        "imagedata": {
+            "0": NaN,
+            "1": NaN
+        },
+        "deviceid": {
+            "0": NaN,
+            "1": 1005.0
+        }
+    }
+}
+test delete: 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 2
+        },
+        " deviceid": {
+            "0": 1021.0
+        },
+        "devicename": {
+            "0": "amachine"
+        },
+        "patientid": {
+            "0": 2
+        },
+        "patientname": {
+            "0": "Max"
+        },
+        "time": {
+            "0": 829
+        },
+        "date": {
+            "0": 20201220
+        },
+        "staffid": {
+            "0": 2
+        },
+        "staffname": {
+            "0": "Marry"
+        },
+        "intdata": {
+            "0": 120
+        },
+        "graphdata": {
+            "0": NaN
+        },
+        "imagedata": {
+            "0": NaN
+        },
+        "deviceid": {
+            "0": NaN
+        }
+    }
+}
+==========================================================================================================================================================================================
+Here goes chats test
+test get 
+{
+    "data": {
+        "id": {
+            "0": 10
+        },
+        "senderid": {
+            "0": 1.0
+        },
+        "recieverid": {
+            "0": 2.0
+        },
+        "time": {
+            "0": 825
+        },
+        "questiontype": {
+            "0": "health"
+        },
+        "textdata": {
+            "0": "stomach hurt"
+        },
+        "intdata": {
+            "0": 10.0
+        },
+        "graphdata": {
+            "0": NaN
+        },
+        "image": {
+            "0": "/a.image"
+        },
+        "voicedata": {
+            "0": "voicedata"
+        },
+        "voice": {
+            "0": NaN
+        }
+    }
+}
+<Response [200]>
+test post 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 10,
+            "1": 1
+        },
+        "senderid": {
+            "0": 1.0,
+            "1": 23.0
+        },
+        "recieverid": {
+            "0": 2.0,
+            "1": 45.0
+        },
+        "time": {
+            "0": 825,
+            "1": 829
+        },
+        "questiontype": {
+            "0": "health",
+            "1": "expence"
+        },
+        "textdata": {
+            "0": "stomach hurt",
+            "1": "how are you"
+        },
+        "intdata": {
+            "0": 10.0,
+            "1": NaN
+        },
+        "graphdata": {
+            "0": NaN,
+            "1": NaN
+        },
+        "image": {
+            "0": "/a.image",
+            "1": NaN
+        },
+        "voicedata": {
+            "0": "voicedata",
+            "1": NaN
+        },
+        "voice": {
+            "0": NaN,
+            "1": NaN
+        }
+    }
+}
+test put: 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 10,
+            "1": 1
+        },
+        "senderid": {
+            "0": 1.0,
+            "1": NaN
+        },
+        "recieverid": {
+            "0": 2.0,
+            "1": NaN
+        },
+        "time": {
+            "0": 825,
+            "1": 840
+        },
+        "questiontype": {
+            "0": "health",
+            "1": "inquire"
+        },
+        "textdata": {
+            "0": "stomach hurt",
+            "1": "how are you, Bob"
+        },
+        "intdata": {
+            "0": 10.0,
+            "1": NaN
+        },
+        "graphdata": {
+            "0": NaN,
+            "1": NaN
+        },
+        "image": {
+            "0": "/a.image",
+            "1": NaN
+        },
+        "voicedata": {
+            "0": "voicedata",
+            "1": NaN
+        },
+        "voice": {
+            "0": NaN,
+            "1": NaN
+        }
+    }
+}
+test delete: 
+<Response [200]>
+{
+    "data": {
+        "id": {
+            "0": 10
+        },
+        "senderid": {
+            "0": 1.0
+        },
+        "recieverid": {
+            "0": 2.0
+        },
+        "time": {
+            "0": 825
+        },
+        "questiontype": {
+            "0": "health"
+        },
+        "textdata": {
+            "0": "stomach hurt"
+        },
+        "intdata": {
+            "0": 10.0
+        },
+        "graphdata": {
+            "0": NaN
+        },
+        "image": {
+            "0": "/a.image"
+        },
+        "voicedata": {
+            "0": "voicedata"
+        },
+        "voice": {
+            "0": NaN
+        }
+    }
+}

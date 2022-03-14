@@ -19,7 +19,7 @@ It includes a database management system and a set of API to handle it.
 
 ### How to use
 - Local
-  - Run hospital.db first, then post request to http://127.0.0.1:5000/staffs, or use test_api to check if the local server is running correctly.
+  - Run hospital.db first, then post request to http://127.0.0.1:5000/ (if local), or use test_api to check if the local server is running correctly.
 
 ## User Stories
 - Patient:
@@ -58,23 +58,33 @@ It includes a database management system and a set of API to handle it.
 - Hotfix    A of emergency bug fixes. 
 
 ## Data Fields
-Check the ERD:  Hospital DB - ERD with colored entities (UML notation)
+Check the ERD:  Hospital DB:  
+![image](Hospital%20DB.png)
 
 ## Unit Test
-This project use bottom-up unit test method.
+This project use bottom-up unit test method. The unit test is designed to test all function in the module.
 
 ## File Structure
-|   Hospital DB - ERD with colored entities (UML notation).pdf  
-|   Hospital DB - ERD with colored entities (UML notation).png  
-|   hospital_db.py  
-|   README.md  
-|   requirements.txt  
-|  
-+---module  
-|   \---user_management  
-|   |       add_user.py  
-|  
-+---test  
-|       testfile.txt  
-\       test_user.py 
- 
+│  Hospital DB.png
+│  hospital_db.py
+│  README.md
+│  requirements.txt
+│  test_api.py
+│
+├─data
+│      datas.csv
+│      fac_product.json
+│      patients.csv
+│      staffs.csv
+│
+├─module
+│  │  __init__.py
+│  │
+│  └─user_management
+│     │  management_api.py
+│     │  management_factory.py
+│     └─ __init__.py
+│
+└─test
+       testoutcome.txt
+       testfile.json
