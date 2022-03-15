@@ -1,0 +1,130 @@
+{
+    "patients": [
+        {
+            "postdata": [
+                {
+                    "id": "1",
+                    "name": "Jason",
+                    "gender": "male",
+                    "age": "19"
+                }
+            ],
+            "putdata": [
+                {
+                    "id": "1",
+                    "name": "Bason",
+                    "gender": "male",
+                    "age": "29"
+                }
+            ],
+            "deletedata": [
+                {
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "staffs": [
+        {
+            "postdata": [
+                {
+                    "id": "1",
+                    "name": "Steven",
+                    "gender": "male",
+                    "role": "nurse",
+                    "title": "chief phisician",
+                    "departmentid": "1301",
+                    "departmentname": "Proctology"
+                }
+            ],
+            "putdata": [
+                {
+                    "id": "1",
+                    "name": "Steve",
+                    "gender": "male",
+                    "role": "doctor",
+                    "title": "chief phisician",
+                    "departmentid": "1302",
+                    "departmentname": "Proctology"
+                }
+            ],
+            "deletedata": [
+                {
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "datas": [
+        {
+            "postdata": [
+                {
+                    "id": "1",
+                    "deviceid": "1001",
+                    "devicename": "blood_pressure_machine",
+                    "patientid": "2",
+                    "patientname": "Max",
+                    "time": "1868",
+                    "date": "20220125",
+                    "staffid": "2",
+                    "staffname": "Marry",
+                    "intdata": "120",
+                    "graphdata": "",
+                    "imagedata": ""
+                }
+            ],
+            "putdata": [
+                {
+                    "id": "1",
+                    "deviceid": "1005",
+                    "devicename": "blood_pressure_machine",
+                    "patientid": "2",
+                    "patientname": "Max",
+                    "time": "20220125",
+                    "date": "1868",
+                    "staffid": "2",
+                    "staffname": "Marry",
+                    "intdata": "120",
+                    "graphdata": "",
+                    "imagedata": ""
+                }
+            ],
+            "deletedata": [
+                {
+                    "id": "1"
+                }
+            ]
+        }
+    ],
+    "chats": [
+        {
+            "postdata": [
+                {
+                    "id": "1",
+                    "senderid":"23",
+                    "recieverid":"45",
+                    "time":"0829",
+                    "questiontype":"expence",
+                    "textdata":"how are you",
+                    "intdata":"",
+                    "graphdata":"",
+                    "image":"",
+                    "voice":""
+                }
+            ],
+            "putdata": [
+                {
+                    "id": "1",
+                    "time":"0840",
+                    "questiontype":"inquire",
+                    "textdata":"how are you, Bob"
+                }
+            ],
+            "deletedata": [
+                {
+                    "id": "1"
+                }
+            ]
+        }
+    ]
+}
