@@ -28,14 +28,16 @@ class hospital_db():
 
 
 if __name__ == '__main__':
-
-    # @app.route('/')
-    # def index():
-    #     return 'Index Page'
-
-    # @app.route('/hello')
-    # def hello():
-    #     return 'Hello, World'
     db = hospital_db()
-    db.app.run(debug=True)  # run Flask app
+
+    @db.app.route('/')
+    def index():
+        return 'Index Page'
+
+    @db.app.route('/hello')
+    def hello():
+        return 'Hello, World'
+
+    # db.app.run(host="0.0.0.0", port=8000, debug=True)  # run Flask app
+    db.app.run(port=8000, debug=True)
     # db.dbprocess()
