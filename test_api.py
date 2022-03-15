@@ -5,10 +5,10 @@ import json
 
 
 class test_api():
-    def __init__(self,mode) -> None:
+    def __init__(self,mode:int) -> None:
         self.term_size = os.get_terminal_size()
         self.name = "name"
-        self.url = 'http://34.238.84.218:8000/' if mode is 0 else 'http://127.0.0.1:8000/'
+        self.url = 'http://34.238.84.218:8000/' if mode == 0 else 'http://127.0.0.1:8000/'
         self.infodir = "./test/testfile.json"
         with open(self.infodir) as json_file:
             self.info = json.load(json_file)
