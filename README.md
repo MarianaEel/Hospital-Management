@@ -1,6 +1,7 @@
 # Hospital-Management
 This repository is designed to handle real-time hospital data service.
 It includes a database management system and a set of API to handle it.
+**THERE IS STILL NOT A STABLE VERSION OF THIS SYSTEM, IF YOU ARE STILL INTERESTED PLEASE CHECK DEV BRANCH**
 
 ## Content
 - [Hospital-Management](#hospital-management)
