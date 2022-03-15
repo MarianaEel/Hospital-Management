@@ -66,26 +66,26 @@ Check the ERD:  Hospital DB:
 This project use bottom-up unit test method. The unit test is designed to test all function in the module.
 
 ## File Structure
-│  Hospital DB.png
-│  hospital_db.py
-│  README.md
-│  requirements.txt
-│  test_api.py
-│
-├─data
-│      datas.csv
-│      fac_product.json
-│      patients.csv
-│      staffs.csv
-│
-├─module
-│  │  __init__.py
-│  │
-│  └─user_management
-│     │  management_api.py
-│     │  management_factory.py
-│     └─ __init__.py
-│
-└─test
-       testoutcome.txt
-       testfile.json
+│  Hospital DB.png  
+│  hospital_db.py  
+│  README.md  
+│  requirements.txt  
+│  test_api.py  
+│  
+├─data  
+│      datas.csv  
+│      fac_product.json  
+│      patients.csv  
+│      staffs.csv  
+│  
+├─module  
+│  │  __init__.py  
+│  │  
+│  └─user_management   
+│     │  management_api.py    
+│     │  management_factory.py    
+│     └─ __init__.py  
+│  
+└─test  
+       testoutcome.txt  
+       testfile.json  
