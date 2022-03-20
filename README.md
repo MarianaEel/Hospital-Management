@@ -1,6 +1,7 @@
 # Hospital-Management
 This repository is designed to handle real-time hospital data service.
 It includes a database management system and a set of API to handle it.
+Now pushed to EC2 server http://34.238.84.218:8000/
 **THERE IS STILL NOT A STABLE VERSION OF THIS SYSTEM, IF YOU ARE STILL INTERESTED PLEASE CHECK DEV BRANCH**
 
 ## Content
@@ -20,7 +21,7 @@ It includes a database management system and a set of API to handle it.
 
 ### How to use
 - Local
-  - Run hospital.db first, then post request to http://127.0.0.1:5000/ (if local), or use test_api to check if the local server is running correctly.
+  - Run hospital.db first, then post request to http://127.0.0.1:5000/ (if local), or http://34.238.84.218:8000/ (my server) or use test_api to check if the local server is running correctly.
 
 ## User Stories
 - Patient:
