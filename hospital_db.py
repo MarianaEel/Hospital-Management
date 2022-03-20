@@ -1,5 +1,5 @@
 import json
-from flask import Flask
+from flask import Flask, render_template
 from flask_restful import Resource, Api, reqparse
 
 import module.user_management.management_factory as factory
@@ -32,12 +32,12 @@ if __name__ == '__main__':
 
     @db.app.route('/')
     def index():
-        return 'Index Page'
+        return render_template('Default.htm')
 
     @db.app.route('/hello')
     def hello():
         return 'Hello, World'
 
-    # db.app.run(host="0.0.0.0", port=8000, debug=True)  # run Flask app
-    db.app.run(port=8000, debug=True)
+    db.app.run(host="0.0.0.0", port=8000, debug=True)  # run Flask app
+    # db.app.run(port=8000, debug=True)
     # db.dbprocess()
