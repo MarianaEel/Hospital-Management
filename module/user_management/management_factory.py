@@ -1,34 +1,26 @@
 import json
 from module.user_management.management_api import management_api
-
+from module.database_api.mongo_api import MongoAPI
 
 class patients(management_api):
     def __init__(self,dir=None) -> None:
         self.name = "patients"
-        self.productdir=dir if dir is not None else "./data/fac_product.json"
-        with open(self.productdir) as json_file:
-            self.product = json.load(json_file)
+        self.mongo_obj = MongoAPI()
 
 class staffs(management_api):
     def __init__(self,dir=None) -> None:
         self.name = "staffs"
-        self.productdir=dir if dir is not None else "./data/fac_product.json"
-        with open(self.productdir) as json_file:
-            self.product = json.load(json_file)
+        self.mongo_obj = MongoAPI()
 
 class datas(management_api):
     def __init__(self,dir=None) -> None:
         self.name = "datas"
-        self.productdir=dir if dir is not None else "./data/fac_product.json"
-        with open(self.productdir) as json_file:
-            self.product = json.load(json_file)
+        self.mongo_obj = MongoAPI()
 
 class chats(management_api):
     def __init__(self,dir=None) -> None:
         self.name = "chats"
-        self.productdir=dir if dir is not None else "./data/fac_product.json"
-        with open(self.productdir) as json_file:
-            self.product = json.load(json_file)
+        self.mongo_obj = MongoAPI()
 
 # class management_factory():
 #     @staticmethod

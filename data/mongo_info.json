@@ -1,0 +1,64 @@
+{
+    "database": "HospitalDB",
+    "collection": ["patients","staffs","datas","chats"],
+    "patients": [
+        {
+            "collections": "patients",
+            "key": [
+                "id",
+                "name",
+                "gender",
+                "age"
+            ]
+        }
+    ],
+    "staffs": [
+        {
+            "collections": "staffs",
+            "key": [
+                "id",
+                "name",
+                "gender",
+                "role",
+                "title",
+                "departmentname"
+            ]
+        }
+    ],
+    "datas": [
+        {
+            "collections": "datas",
+            "key": [
+                "id",
+                "deviceid",
+                "devicename",
+                "patientid",
+                "patientname",
+                "time",
+                "date",
+                "staffid",
+                "staffname",
+                "intdata",
+                "graphdata",
+                "imagedata"
+            ]
+        }
+    ],
+    "chats": [
+        {
+            "collections": "chats",
+            "key": [
+                "id",
+                "senderid",
+                "recieverid",
+                "time",
+                "questiontype",
+                "textdata",
+                "intdata",
+                "graphdata",
+                "image",
+                "voice"
+            ]
+        }
+    ]
+}
