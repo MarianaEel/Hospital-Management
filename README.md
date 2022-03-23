@@ -9,7 +9,10 @@ Now pushed to EC2 server http://34.238.84.218:8000/
   - [Content](#content)
   - [Setup](#setup)
     - [Requirement](#requirement)
-    - [How to use](#how-to-use)
+  - [How to use](#how-to-use)
+  - [Query Syntax](#query-syntax)
+  - [Database](#database)
+  - [Server](#server)
   - [User Stories](#user-stories)
   - [Branching Strategy](#branching-strategy)
   - [Data Fields](#data-fields)
@@ -19,9 +22,31 @@ Now pushed to EC2 server http://34.238.84.218:8000/
 ## Setup
 ### Requirement
 
-### How to use
+## How to use
 - Local
-  - Run hospital.db first, then post request to http://127.0.0.1:5000/ (if local), or http://34.238.84.218:8000/ (my server) or use test_api to check if the local server is running correctly.
+  - Run hospital.db first, then post request to http://127.0.0.1:5000/CollectionName (if local), or use test_api to check if the local server is running correctly (make sure test_api.py is set to local mode).
+- Remote 
+  - Post request to http://34.238.84.218:8000/"CollectionName" (my server), or use test_api to check if the local server is running correctly.
+
+## Query Syntax
+- GET
+  - Directly access http://34.238.84.218:8000/CollectionName is considered as get command and will return the whole collection as json file. 
+  - Get method in python request package can also perform the get query, use it like 
+  - ```python
+    request.get(url)
+    ```
+- POST
+  - Post method in python request package can post data. Use it like "requests.post(url, postdata)"
+- PUT
+  - Put method in python request package can put data.
+- DELETE
+  - d
+
+## Database
+This project use MongoDB as database.
+
+## Server
+The project has been deployed on Amazon EC2 server, with Flask APP and MongoDB running seperately.
 
 ## User Stories
 - Patient:
@@ -64,7 +89,8 @@ Check the ERD:  Hospital DB:
 ![image](Hospital%20DB.png)
 
 ## Unit Test
-This project use bottom-up unit test method. The unit test is designed to test all function in the module.
+This project use bottom-up unit test method. The unit test is designed to test all function in the module. Unit test can be found at test_api.py.
+
 
 ## File Structure
 │  Hospital DB.png  
