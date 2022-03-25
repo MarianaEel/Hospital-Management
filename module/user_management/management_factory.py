@@ -1,6 +1,8 @@
 import json
+from flask_restful import reqparse
 from module.user_management.management_api import management_api
 from module.database_api.mongo_api import MongoAPI
+from module.speech2text.stt import stt_api
 
 class patients(management_api):
     def __init__(self,dir=None) -> None:
@@ -21,6 +23,54 @@ class chats(management_api):
     def __init__(self,dir=None) -> None:
         self.name = "chats"
         self.mongo_obj = MongoAPI()
+    
+    def post(self):
+        parser = reqparse.RequestParser()  # initialize
+        for key in self.mongo_obj.data[self.name][0]["key"]:
+            parser.add_argument(key, required=True)  # add args
+        args = parser.parse_args()  # parse collections to dictionary
+        
+        # read our database
+        data = self.mongo_obj.database[self.name].find_one(
+            {"id": args['id']}, {"_id": 0})
+        if data is None:
+            if(args["voice"]is not None):
+                stt_objects= stt_api()
+                args["textdata"] = stt_objects.speech_to_text(args["voice"])
+            output = self.mongo_obj.write(self.name, args)
+            return {'data': output}, 200  # return data with 200 OK
+        else:
+            return {
+                'message': f"'{args['id']}' already exists."
+            }, 401
+    
+    def put(self):
+        parser = reqparse.RequestParser()  # initialize
+        for key in self.mongo_obj.data[self.name][0]["key"]:
+            if key == "id":
+                parser.add_argument(key, required=True)  # add args
+            else:
+                parser.add_argument(key, required=False)  # add args
+        args = parser.parse_args()  # parse collections to dictionary
+
+        filt = {"id": args['id']}
+        # read our database
+        data = self.mongo_obj.database[self.name].find_one({"id": args['id']})
+        if data is not None:
+            #check if audio file is modified
+            if(args["voice"]is not None):
+                stt_objects= stt_api()
+                args["textdata"] = stt_objects.speech_to_text(args["voice"])
+            # save back to database
+            output = self.mongo_obj.update(self.name, filt, args)
+            # return data and 200 OK
+            return {'data': output}, 200
+
+        else:
+            # otherwise the id does not exist
+            return {
+                'message': f"'{args['id']}' user not found."
+            }, 404
 
 # class management_factory():
 #     @staticmethod
