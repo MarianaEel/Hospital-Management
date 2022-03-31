@@ -105,19 +105,18 @@
                     "recieverid":"45",
                     "time":"0829",
                     "questiontype":"expence",
-                    "textdata":"how are you",
+                    "textdata":"",
                     "intdata":"",
                     "graphdata":"",
                     "image":"",
-                    "voice":""
+                    "voice":"./data/testaudio.wav"
                 }
             ],
             "putdata": [
                 {
                     "id": "1",
                     "time":"0840",
-                    "questiontype":"inquire",
-                    "textdata":"how are you, Bob"
+                    "questiontype":"inquire"
                 }
             ],
             "deletedata": [

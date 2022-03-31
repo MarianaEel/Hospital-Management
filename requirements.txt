@@ -1,4 +1,7 @@
 flask
 pandas
 requests
-
+pymongo
+pyaudio
+SpeechRecognition
+google-api-python-client
