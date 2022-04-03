@@ -8,7 +8,7 @@ Now pushed to EC2 server http://34.238.84.218:8000/
 ## Content
 - [Hospital-Management](#hospital-management)
   - [Content](#content)
-  - [Version 0.0.6](#version-006)
+  - [Version 0.0.7](#version-007)
   - [Setup](#setup)
     - [Requirement](#requirement)
   - [How to use](#how-to-use)
@@ -19,8 +19,8 @@ Now pushed to EC2 server http://34.238.84.218:8000/
   - [Branching Strategy](#branching-strategy)
   - [Unit Test](#unit-test)
 
-## Version 0.0.6
-Updated Speech to Text module, now in chat module, when user upload a wav format conversation, the server can transform it into text and store in database.
+## Version 0.0.7
+Updated The Frontend of this project. Implemented a all platform frontend based on React Native.
 
 ## Setup
 ### Requirement
@@ -30,7 +30,9 @@ Updated Speech to Text module, now in chat module, when user upload a wav format
   - Run hospital.db first, then post request to http://127.0.0.1:5000/CollectionName (if local), or use test_api to check if the local server is running correctly (make sure test_api.py is set to local mode).
 - Remote 
   - Post request to http://34.238.84.218:8000/"CollectionName" (my server), or use test_api to check if the local server is running correctly.
-
+- Use mobile app:
+  - Download Expo and run https://expo.dev/@marianaeel/Hospital_Frontend.
+  - ![image](./static/Frontend.GIF)
 ## Query Syntax
 - GET
   - Directly access `site_url = http://34.238.84.218:8000/CollectionName` is considered as get command and will return the whole collection as json file. 

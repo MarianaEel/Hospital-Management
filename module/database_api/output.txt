@@ -1,0 +1,35 @@
+checking database name
+['HospitalDB', 'admin', 'config', 'local']
+testing collection
+['patients']
+testing collection end
+{'id': '104', 'name': 'zee', 'gender': 'female', 'age': '20'}
+True
+delete
+{
+    "Status": "Successfully Deleted"
+}
+{
+    "Status": "Successfully Deleted"
+}
+after delete
+[
+    {
+        "id": "102",
+        "name": "chenbo",
+        "gender": "male",
+        "age": "21"
+    },
+    {
+        "id": "103",
+        "name": "chess",
+        "gender": "male",
+        "age": "60"
+    },
+    {
+        "id": "1",
+        "name": "Jason",
+        "gender": "male",
+        "age": "19"
+    }
+]
