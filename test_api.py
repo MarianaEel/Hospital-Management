@@ -2,6 +2,15 @@ import requests
 import os
 import json
 
+"""
+test_api.py:
+    Class test_api:
+        A prototype of basic testing function. 
+        Gives a method to read test data from json file and organize them into test class.
+
+    test_<name>.py
+        initialize test classes with test_api
+"""
 
 class test_api():
     def __init__(self,mode:int) -> None:

@@ -9,12 +9,14 @@ Now pushed to EC2 server http://34.238.84.218:8000/
 - [Hospital-Management](#hospital-management)
   - [Content](#content)
   - [Version 0.0.7](#version-007)
+  - [Structure](#structure)
   - [Setup](#setup)
     - [Requirement](#requirement)
   - [How to use](#how-to-use)
   - [Query Syntax](#query-syntax)
-  - [Database](#database)
-  - [Data Fields](#data-fields)
+  - [Flask API server](#flask-api-server)
+  - [MongoDB Database](#mongodb-database)
+    - [Data Fields](#data-fields)
   - [User Stories](#user-stories)
   - [Branching Strategy](#branching-strategy)
   - [Unit Test](#unit-test)
@@ -22,9 +24,19 @@ Now pushed to EC2 server http://34.238.84.218:8000/
 ## Version 0.0.7
 Updated The Frontend of this project. Implemented a all platform frontend based on React Native.
 
+## Structure
+This system is constructed in three parts: Flask API server, MongoDB database and React-Native & Web intrance of the system.
+
+[Flask API server](#flask-api-server)
+
+[MongoDB Database](#mongodb-database)
+
+[React Native Frontend](https://github.com/MarianaEel/Hospital-Frontend)
+
 ## Setup
 ### Requirement
 - Check [requirements.txt](requirements.txt)
+
 ## How to use
 - Local
   - Run hospital.db first, then post request to http://127.0.0.1:5000/CollectionName (if local), or use test_api to check if the local server is running correctly (make sure test_api.py is set to local mode).
@@ -33,6 +45,7 @@ Updated The Frontend of this project. Implemented a all platform frontend based 
 - Use mobile app:
   - Download Expo and run https://expo.dev/@marianaeel/Hospital_Frontend.
   - ![image](./static/Frontend.GIF)
+
 ## Query Syntax
 - GET
   - Directly access `site_url = http://34.238.84.218:8000/CollectionName` is considered as get command and will return the whole collection as json file. 
@@ -61,11 +74,20 @@ Updated The Frontend of this project. Implemented a all platform frontend based 
     request.request('DELETE', site_url + "?id="Your_ID")
     ```
 
-## Database
+## Flask API server
+The API server use Flask_Restful framework and is defined in [hospital_db.py](hospital_db.py), it use json file to auto generate API class and API queries. Check how API class is construct: [Modules](/module/)
+
+The API server is deployed on AWS EC2 server with open ports for access.
+
+The API server is connected with deployed MongoDB using private port connection.
+
+## MongoDB Database
 This project use MongoDB as database.
 An API for MongoDB is implemented to control MongoDB queries, check [mongo_api.py](module/database_api/mongo_api.py) for more information.
 
-## Data Fields
+The database is running seperately on server with only connection to the flask api server can only be accessed by the flask api server.
+
+### Data Fields
 Check the ERD:  Hospital DB:  
 ![image](Hospital%20DB.png)
 

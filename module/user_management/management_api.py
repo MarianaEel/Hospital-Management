@@ -6,7 +6,7 @@ from ..database_api import mongo_api
 
 
 class management_api_interface(Resource):
-    '''a interface for api class'''
+    '''a interface for api class with restful api interface'''
     @abstractstaticmethod
     def get(self):
         pass
@@ -22,8 +22,9 @@ class management_api_interface(Resource):
 
 
 class management_api(management_api_interface):
-    '''define a api prototype for extention'''
-
+    '''
+    define a api prototype for management_factory to produce api resource class
+    '''
     def __init__(self, dir=None) -> None:
         self.name = "name"
         self.mongo_obj = mongo_api.MongoAPI()

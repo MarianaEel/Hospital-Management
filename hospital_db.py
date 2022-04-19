@@ -3,9 +3,12 @@ from flask import Flask, render_template
 from flask_restful import Resource, Api, reqparse
 import pymongo
 from module.database_api import mongo_api
-
 import module.user_management.management_factory as factory
 
+"""
+hopspital_db.py
+This is where Flask app initialize
+"""
 
 class hospital_db():
     def __init__(self) -> None:
@@ -16,17 +19,6 @@ class hospital_db():
         self.api.add_resource(factory.staffs, "/staffs")
         self.api.add_resource(factory.datas, "/datas")
         self.api.add_resource(factory.chats, "/chats")
-
-    # def dbprocess(self):
-    #     self.childpr = Process(target=self.dbrun, args=('testdb',))
-    #     print('Child process will start.')
-    #     self.childpr.start()
-    #     self.childpr.join()
-    #     print('Child process end.')
-    # def dbrun(self, name):
-    #     print('Run child process %s (%s)...' % (name, os.getpid()))
-    #     db = hospital_db.hospital_db()
-    #     db.app.run(debug=True)
 
 
 if __name__ == '__main__':
