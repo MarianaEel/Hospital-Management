@@ -1,5 +1,3 @@
-from ast import Str
-from email.mime import audio
 import speech_recognition as sr
 
 class stt_api():

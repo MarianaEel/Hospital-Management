@@ -37,6 +37,16 @@ This system is constructed in three parts: Flask API server, MongoDB database an
 
 ## Setup
 ### Requirement
+```python
+Python 3.8.12
+Flask 2.0.2
+Werkzeug 2.0.3
+pandas 1.4.0
+requests 2.27.1
+pymongo 4.0.2
+SpeechRecognition 3.8.1
+google-api-python-client 2.42.0
+```
 - Check [requirements.txt](requirements.txt)
 
 ## How to use
