@@ -33,6 +33,8 @@ This system is constructed in three parts: Flask API server, MongoDB database an
 
 [React Native Frontend](https://github.com/MarianaEel/Hospital-Frontend)
 
+![image](System%20Structure.png)
+
 ## Setup
 ### Requirement
 - Check [requirements.txt](requirements.txt)
