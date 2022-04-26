@@ -9,11 +9,11 @@ Now pushed to EC2 server http://34.238.84.218:8000/
 - [Hospital-Management](#hospital-management)
   - [Content](#content)
   - [Version 0.0.7](#version-007)
-  - [Structure](#structure)
   - [Setup](#setup)
     - [Requirement](#requirement)
   - [How to use](#how-to-use)
   - [Query Syntax](#query-syntax)
+  - [Structure](#structure)
   - [Flask API server](#flask-api-server)
     - [Flask API Class](#flask-api-class)
   - [MongoDB Database](#mongodb-database)
@@ -24,17 +24,6 @@ Now pushed to EC2 server http://34.238.84.218:8000/
 
 ## Version 0.0.7
 Updated The Frontend of this project. Implemented a all platform frontend based on React Native.
-
-## Structure
-This system is constructed in three parts: Flask API server, MongoDB database and React-Native & Web intrance of the system.
-
-[Flask API server](#flask-api-server)
-
-[MongoDB Database](#mongodb-database)
-
-[React Native Frontend](https://github.com/MarianaEel/Hospital-Frontend)
-
-![image](System%20Structure.png)
 
 ## Setup
 ### Requirement
@@ -86,6 +75,17 @@ google-api-python-client 2.42.0
     ``` python
     request.request('DELETE', site_url + "?id="Your_ID")
     ```
+
+## Structure
+This system is constructed in three parts: Flask API server, MongoDB database and React-Native & Web intrance of the system.
+
+[Flask API server](#flask-api-server)
+
+[MongoDB Database](#mongodb-database)
+
+[React Native Frontend](https://github.com/MarianaEel/Hospital-Frontend)
+
+![image](System%20Structure.png)
 
 ## Flask API server
 The API server use Flask_Restful framework and is defined in [hospital_db.py](hospital_db.py), it use json file to auto generate API class and API queries. Check how API class is construct: [Modules](/module/)
