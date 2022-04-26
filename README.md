@@ -15,6 +15,7 @@ Now pushed to EC2 server http://34.238.84.218:8000/
   - [How to use](#how-to-use)
   - [Query Syntax](#query-syntax)
   - [Flask API server](#flask-api-server)
+    - [Flask API Class](#flask-api-class)
   - [MongoDB Database](#mongodb-database)
     - [Data Fields](#data-fields)
   - [User Stories](#user-stories)
@@ -92,6 +93,16 @@ The API server use Flask_Restful framework and is defined in [hospital_db.py](ho
 The API server is deployed on AWS EC2 server with open ports for access.
 
 The API server is connected with deployed MongoDB using private port connection.
+
+### Flask API Class
+
+The Flask API class is automatically generate using factory module. The diagram of the structure is as following:
+
+![image](Flask%20API%20Class%20Factory.png)
+
+Check [factory module](/module/user_management/management_factory.py) for how to produce different Flask API class.
+
+Check [prototype class](/module/user_management/management_api.py) for how the prototype and interface is defined.
 
 ## MongoDB Database
 This project use MongoDB as database.
